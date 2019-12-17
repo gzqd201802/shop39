@@ -1,0 +1,12 @@
+<!-- 搜索框组件 -->
+<search/>
+<!-- 轮播图 -->
+<swiper>
+  <block wx:for="{{ swiperImgs }}" wx:key="goods_id">
+    <swiper-item>
+     <navigator url="{{ item.navigator_url }}">
+      <image src="{{ item.image_src }}"></image>
+     </navigator>
+    </swiper-item>
+  </block>
+</swiper>

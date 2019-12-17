@@ -1,0 +1,48 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/cart/index",
+    "pages/user/index",
+    "pages/goods_detail/index",
+    "pages/goods_list/index",
+    "pages/category/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#eb4450",
+    "navigationBarTitleText": "黑马优购",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "selectedColor": "#eb4450",
+    "list": [
+      {
+      "pagePath": "pages/index/index",
+      "text": "首页",
+      "iconPath": "tabs/tab_home_nor@3x.png",
+      "selectedIconPath": "tabs/tab_home_fill@3x.png"
+    },
+    {
+      "pagePath": "pages/category/index",
+      "text": "分类",
+      "iconPath": "tabs/tab_classify_nor@3x.png",
+      "selectedIconPath": "tabs/tab_classify_fill@3x.png"
+    },
+    {
+      "pagePath": "pages/cart/index",
+      "text": "购物车",
+      "iconPath": "tabs/tab_cart_nor@3x.png",
+      "selectedIconPath": "tabs/tab_cart_fill@3x.png"
+    },
+    {
+      "pagePath": "pages/user/index",
+      "text": "我的",
+      "iconPath": "tabs/tab_my_nor@3x.png",
+      "selectedIconPath": "tabs/tab_my_fill@3x.png"
+    }
+    ]
+  },
+  
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

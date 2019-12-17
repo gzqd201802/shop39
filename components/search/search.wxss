@@ -1,0 +1,21 @@
+.search{
+  background-color: #eb4450;
+  padding: 20rpx 16rpx;
+}
+.search-in{
+  background-color: #fff;
+  height: 60rpx;
+  border-radius: 30rpx;
+  display: flex;
+  /* 主轴居中 */
+  justify-content: center;
+  /* 侧轴居中 */
+  align-items: center;
+}
+.search-icon{
+  margin-right: 5rpx;
+}
+.search-text{
+  color:#ccc;
+  font-size: 30rpx;
+}
