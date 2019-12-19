@@ -5,10 +5,26 @@
     <!-- 左边 -->
     <scroll-view scroll-y class="cate-left">
         <block wx:for="{{ cateArr }}" wx:key="cat_id">
-            <view class="cate-left-item">
+            <view bind:tap="changeIndex" data-index="{{index}}" class="cate-left-item {{ index === activeIndex ? 'on' : '' }}">
                 {{ item.cat_name }}
             </view>
         </block>
     </scroll-view>
-    <scroll-view scroll-y class="cate-right">右边</scroll-view>
+    <!-- 右边 -->
+    <scroll-view scroll-y class="cate-right">
+        <!-- 外层嵌套一级分类 -->
+        <block wx:for="{{ cateRight }}" wx:key="cat_id">
+            <view class="cate-right-title"> {{ item.cat_name }} </view>
+        <view class="cate-right-body">
+            <!-- 里层嵌套商品分类 -->
+            <block wx:for="{{item.children}}" wx:for-item="item2" wx:key="cat_id">
+                <!-- !!! 在跳转页面的时候，把 query (关键词) 和 cid (分类id) 也进行传递到列表页中 -->
+                <navigator class="cate-right-item" url="/pages/goods_list/index?query={{item2.cat_name}}&cid={{ item2.cat_id }}">
+                    <image lazy-load mode="widthFix" class="cate-right-item-image" src="{{ item2.cat_icon }}" />
+                    <text class="cate-right-item-text">{{ item2.cat_name }}</text>
+                </navigator>
+            </block>
+        </view>
+        </block>
+    </scroll-view>
 </view>

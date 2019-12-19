@@ -1,19 +1,37 @@
 /* pages/category/index.wxss */
 .cate{
-    background-color: gold;
     display: flex;
     // 左边
     &-left{
         width: 200rpx;
         // calc()     CSS3 计算功能，允许不同单位进行计算
+        // 注意:减号两边需要有空格
         height: ~'calc(100vh - 100rpx)';
-        background-color: pink;
         &-item{
             height: 100rpx;
             display: flex;
             justify-content: center;
             align-items: center;
             border-bottom: 1rpx solid #ddd;
+            background-color: #f4f4f4;
+            // 左侧选中状态的类名
+            &.on{
+                color:#f00;
+                font-weight: bold;
+                position: relative;
+                background-color: #fff;
+                // 前面修饰的红色小方块
+                &::before{
+                    content: "";
+                    width: 10rpx;
+                    position: absolute;
+                    left: 0;
+                    // 没有设置高度，通过定位的 top，bottom 同时作用拉伸一个高度
+                    top:15rpx;
+                    bottom: 15rpx;
+                    background-color: #f00;
+                }
+            }
         }
     }
     // 右边
@@ -21,6 +39,39 @@
         flex:1;
         // calc()     CSS3 计算功能，允许不同单位进行计算
         height: ~'calc(100vh - 100rpx)';
-        background-color: hotpink;
+        // 标题
+        &-title{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            // 文字两边的两条斜线
+            &::after, &::before{
+                content: "/";
+                color: #ccc;
+                margin:0 10rpx;
+            }
+        }
+        // 主体
+        &-body{
+            display: flex;
+            // flex 换行
+            flex-wrap: wrap;
+        }
+        // 每一项
+        &-item{
+            width: 33%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            // flex 垂直排列
+            flex-direction: column;
+            // 图片宽度
+            image{
+                width: 70%;
+            }
+        }
+        
     }
+
+    
 }

@@ -1,12 +1,10 @@
 /* pages/category/index.wxss */
 .cate {
-  background-color: gold;
   display: flex;
 }
 .cate-left {
   width: 200rpx;
   height: calc(100vh - 100rpx);
-  background-color: pink;
 }
 .cate-left-item {
   height: 100rpx;
@@ -14,9 +12,49 @@
   justify-content: center;
   align-items: center;
   border-bottom: 1rpx solid #ddd;
+  background-color: #f4f4f4;
+}
+.cate-left-item.on {
+  color: #f00;
+  font-weight: bold;
+  position: relative;
+  background-color: #fff;
+}
+.cate-left-item.on::before {
+  content: "";
+  width: 10rpx;
+  position: absolute;
+  left: 0;
+  top: 15rpx;
+  bottom: 15rpx;
+  background-color: #f00;
 }
 .cate-right {
   flex: 1;
   height: calc(100vh - 100rpx);
-  background-color: hotpink;
+}
+.cate-right-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cate-right-title::after,
+.cate-right-title::before {
+  content: "/";
+  color: #ccc;
+  margin: 0 10rpx;
+}
+.cate-right-body {
+  display: flex;
+  flex-wrap: wrap;
+}
+.cate-right-item {
+  width: 33%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.cate-right-item image {
+  width: 70%;
 }
