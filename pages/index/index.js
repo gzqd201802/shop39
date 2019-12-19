@@ -1,7 +1,8 @@
 Page({
 
   data:{
-    swiperImgs:[]
+    swiperImgs:[ ],
+    floorData:[ ],
   },
 
   onLoad(){
@@ -14,6 +15,17 @@ Page({
         })
       }
     });
+    
+    wx.request({
+      url: 'https://api.zbztb.cn/api/public/v1/home/floordata',
+      success:res=>{
+        // console.log(res);
+        this.setData({
+          // 数据统一都是在 res.data.message，后续可以统一封装起来
+          floorData: res.data.message
+        })
+      }
+    })
 
   }
   

@@ -1,0 +1,17 @@
+.floor-title image {
+  width: 750rpx;
+}
+.floor-body {
+  margin-left: 10rpx;
+}
+.floor-body navigator {
+  float: left;
+  margin-right: 10rpx;
+}
+.floor-body navigator:nth-child(1) image {
+  height: 386rpx;
+}
+.floor-body image {
+  width: 232rpx;
+  height: 188rpx;
+}
