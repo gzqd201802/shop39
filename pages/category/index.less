@@ -1,0 +1,26 @@
+/* pages/category/index.wxss */
+.cate{
+    background-color: gold;
+    display: flex;
+    // 左边
+    &-left{
+        width: 200rpx;
+        // calc()     CSS3 计算功能，允许不同单位进行计算
+        height: ~'calc(100vh - 100rpx)';
+        background-color: pink;
+        &-item{
+            height: 100rpx;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-bottom: 1rpx solid #ddd;
+        }
+    }
+    // 右边
+    &-right{
+        flex:1;
+        // calc()     CSS3 计算功能，允许不同单位进行计算
+        height: ~'calc(100vh - 100rpx)';
+        background-color: hotpink;
+    }
+}

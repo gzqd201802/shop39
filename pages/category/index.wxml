@@ -1,2 +1,14 @@
-<!--pages/category/index.wxml-->
-<text>pages/category/index.wxml</text>
+<!-- 调用自定义的搜索组件 -->
+<search />
+<view class="cate">
+    <!-- scroll-view 垂直滚动需要设高度 -->
+    <!-- 左边 -->
+    <scroll-view scroll-y class="cate-left">
+        <block wx:for="{{ cateArr }}" wx:key="cat_id">
+            <view class="cate-left-item">
+                {{ item.cat_name }}
+            </view>
+        </block>
+    </scroll-view>
+    <scroll-view scroll-y class="cate-right">右边</scroll-view>
+</view>

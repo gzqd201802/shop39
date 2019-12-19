@@ -1,1 +1,22 @@
 /* pages/category/index.wxss */
+.cate {
+  background-color: gold;
+  display: flex;
+}
+.cate-left {
+  width: 200rpx;
+  height: calc(100vh - 100rpx);
+  background-color: pink;
+}
+.cate-left-item {
+  height: 100rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1rpx solid #ddd;
+}
+.cate-right {
+  flex: 1;
+  height: calc(100vh - 100rpx);
+  background-color: hotpink;
+}
