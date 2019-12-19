@@ -15,3 +15,16 @@
   width: 232rpx;
   height: 188rpx;
 }
+.to-top {
+  width: 100rpx;
+  height: 100rpx;
+  background-color: pink;
+  position: fixed;
+  right: 20rpx;
+  bottom: 20rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 50%;
+}

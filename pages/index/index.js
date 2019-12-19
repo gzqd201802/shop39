@@ -5,6 +5,13 @@ Page({
     floorData:[ ],
   },
 
+  // 返回顶部
+  toTop(){
+    // 调用页面滚动 API
+    wx.pageScrollTo({
+      scrollTop:0
+    })
+  },
   onLoad(){
 
     wx.request({

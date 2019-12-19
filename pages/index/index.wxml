@@ -27,5 +27,10 @@
   </view>
 </block>
 
+<view class="to-top" bind:tap="toTop">
+  <view class="">🆙</view>
+  <text>顶部</text>
+</view>
+
 
 
