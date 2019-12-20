@@ -1,3 +1,7 @@
+const app = getApp();
+// 在需要使用到  async await 的 js 中，手动引入 runtime.js， regeneratorRuntime 名字不能改
+import regeneratorRuntime from '../../lib/runtime/runtime';
+
 Page({
 
   data:{
@@ -12,27 +16,35 @@ Page({
       scrollTop:0
     });
   },
-  onLoad(){
 
-    wx.request({
-      url: 'https://api.zbztb.cn/api/public/v1/home/swiperdata',
-      success:res=>{
-        this.setData({
-          swiperImgs: res.data.message
-        })
-      }
-    });
+  async onLoad(){
+
+    const swiperImgs = await app.myAxios({url:'home/swiperdata'});
+    const floorData = await app.myAxios({url:'home/floordata'});
+
+    // console.log(swiperImgs,floorData);
+    this.setData({ swiperImgs,floorData });
     
-    wx.request({
-      url: 'https://api.zbztb.cn/api/public/v1/home/floordata',
-      success:res=>{
-        // console.log(res);
-        this.setData({
-          // 数据统一都是在 res.data.message，后续可以统一封装起来
-          floorData: res.data.message
-        })
-      }
-    })
+
+    // wx.request({
+    //   url: 'https://api.zbztb.cn/api/public/v1/home/swiperdata',
+    //   success:res=>{
+    //     this.setData({
+    //       swiperImgs: res.data.message
+    //     })
+    //   }
+    // });
+    
+    // wx.request({
+    //   url: 'https://api.zbztb.cn/api/public/v1/home/floordata',
+    //   success:res=>{
+    //     // console.log(res);
+    //     this.setData({
+    //       // 数据统一都是在 res.data.message，后续可以统一封装起来
+    //       floorData: res.data.message
+    //     })
+    //   }
+    // })
 
   }
   
