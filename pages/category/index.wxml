@@ -11,7 +11,7 @@
         </block>
     </scroll-view>
     <!-- 右边 -->
-    <scroll-view scroll-y class="cate-right">
+    <scroll-view scroll-y  scroll-top="{{ rightTop }}" class="cate-right">
         <!-- 外层嵌套一级分类 -->
         <block wx:for="{{ cateRight }}" wx:key="cat_id">
             <view class="cate-right-title"> {{ item.cat_name }} </view>
