@@ -1,5 +1,5 @@
-// !!!!! 注意引入 JS 只能写相对路径。
-import { myAxios } from '../../utils/myAxios';
+// 获取 app.js 中的全局实例 
+const app = getApp();
 
 Page({
   data:{
@@ -27,7 +27,7 @@ Page({
   onLoad(){
     if(this.data.cateArr.length === 0){
       // 调用自己封装的 myAxios 库
-      myAxios({
+      app.myAxios({
         url:'categories',
       }).then(res=>{
             // 现在的 res 就是 之前的 res.data.message 
