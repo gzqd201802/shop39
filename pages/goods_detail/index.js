@@ -10,6 +10,57 @@ Page({
     // 商品详情
     goods_detail:{}
   },
+  goToCart(){
+    // 用于跳转 tabBar 页的 API
+    wx.switchTab({
+      url: '/pages/cart/index',
+    });
+  },
+  // 添加购物车
+  addToCart(){
+    // 解构 商品名称，商品图片，商品价格，商品 id
+    // 额外还需要：商品选中状态，商品数量
+    const { goods_name,goods_price,goods_id,goods_small_logo } = this.data.goods_detail;
+    // 注意事项：两种情况
+    // 0. 读取本地存储购物车数据
+    const cartList = wx.getStorageSync('cartList') || [];
+    // !!! findIndex 如果不存在就返回 -1，如果能存在就返回数据所在的索引值
+    const index = cartList.findIndex(v=>{
+      return v.goods_id === goods_id;
+    })
+    // 1. 商品不存在的情况
+    if(index === -1){
+      // 添加新的数组到数组中
+      cartList.push({
+        // 解构得到的数据
+        goods_name,
+        goods_price,
+        goods_id,
+        goods_small_logo,
+        // 商品选中状态，商品数量
+        goods_selected: true,
+        goods_count:1,
+      });
+    }
+    // 2. 商品已经存在的情况
+    else{
+      cartList[index].goods_count++;
+    }
+
+    // 更新本地存储数据
+    wx.setStorageSync('cartList', cartList);
+
+    // 添加成功后，显示消息提示框
+    wx.showToast({
+      title: '加入购物车成功',
+      icon: 'success',
+      // 持续时间
+      duration: 500,
+      // 是否防止触摸穿透
+      mask: true
+    });
+
+  },
   // 预览大图的事件
   previewBigImage(event){
     const { src } = event.currentTarget.dataset;
