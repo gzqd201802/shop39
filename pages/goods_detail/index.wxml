@@ -1,5 +1,5 @@
 <!-- 轮播图 -->
-<swiper class="slider-swiper">
+<swiper class="slider-swiper" autoplay circular indicator-dots>
     <block wx:for="{{ goods_detail.pics }}" wx:key="pics_id">
         <swiper-item>
             <image bind:tap="previewBigImage" data-src="{{ item.pics_big }}" src="{{ item.pics_big }}" />

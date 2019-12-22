@@ -24,7 +24,7 @@ Page({
     // 注意事项：两种情况
     // 0. 读取本地存储购物车数据
     const cartList = wx.getStorageSync('cartList') || [];
-    // !!! findIndex 如果不存在就返回 -1，如果能存在就返回数据所在的索引值
+    // !!! findIndex 如果查找不存在就返回 -1，如果查找存在就返回数据所在的索引值
     const index = cartList.findIndex(v=>{
       return v.goods_id === goods_id;
     })
@@ -80,6 +80,13 @@ Page({
       // options 为页面参数，options 内部保存了 goods_id 参数
       data: options
     });
+    // 如果是 ios 操作系统，通过正则表达式吧 webp 图片路径替换
+    const { platform } =  wx.getSystemInfoSync();
+    // console.log(system);
+    if(platform === 'ios'){
+      // .+?   匹配多个任意字符，并阻止贪婪模式(最近一个webp结束)
+      res.goods_introduce = res.goods_introduce.replace(/\?.+?webp/g,'')
+    }
     // 通过 this.setData() 把请求的数据绑定起来，用于页面渲染
     this.setData({
       goods_detail: res
