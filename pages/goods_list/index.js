@@ -40,24 +40,28 @@ Page({
     })
   },
   // 页面加载生命函数
-  async onLoad(options) {
+  onLoad(options) {
+    // 获取列表数据
+    this.getList();
+  },
+  // 把获取列表的业务封装起来
+  async getList(){
 
-    // 根据参数发送请求
+    let {pagenum,pagesize} = this.data;
     const res = await app.myAxios({
       url:'goods/search',
       data: {
-        ...options,
-        pagenum: this.data.pagenum,
-        pagesize: this.data.pagesize
+        ...this.options,
+        pagenum,
+        pagesize
       }
     });
 
     // 更新页面的列表，并把总数保存起来用于做分页
     this.setData({
-      goods: res.goods,
+      goods: [...this.data.goods, ...res.goods],
       total: res.total
-    })
-
+    });
   },
   // 下拉事件
   onPullDownRefresh(){
@@ -67,9 +71,28 @@ Page({
       pagenum:1
     });
     // 重新调用一下 onLoad，重新加载
-    this.onLoad(this.options);
+    this.onLoad();
   },
+  // 上拉触底事件
   onReachBottom(){
-
+    // !!!总页数公式：Math.ceil( total / pagesize )
+    let { pagenum,total,pagesize  } = this.data;
+    // 如果当前页小于总页数
+    if(pagenum < Math.ceil( total / pagesize )){
+      // pagenum 累加1，再发起请求
+      this.setData({
+        pagenum: ++pagenum
+      });
+      // 根据新的页面调用请求数据
+      this.getList();
+    }else{
+      // 消息提示框 - 查 API 手册
+      wx.showToast({
+        // 提示的内容
+        title: '没有更多数据...',
+        // 图标
+        icon: 'none',
+      });
+    }
   }
 });
