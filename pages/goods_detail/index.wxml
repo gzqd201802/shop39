@@ -2,7 +2,7 @@
 <swiper class="slider-swiper">
     <block wx:for="{{ goods_detail.pics }}" wx:key="pics_id">
         <swiper-item>
-            <image src="{{ item.pics_big }}" />
+            <image bind:tap="previewBigImage" data-src="{{ item.pics_big }}" src="{{ item.pics_big }}" />
         </swiper-item>
     </block>
 </swiper>
