@@ -32,6 +32,10 @@ export const myAxios = (params)=>{
             complete: ()=>{
                 // 隐藏提示框
                 wx.hideLoading();
+                // 请求完毕，下拉刷新结束
+                wx.stopPullDownRefresh();
+                // 请求完毕，关闭导航栏小菊花
+                wx.hideNavigationBarLoading();
             }
         });
 

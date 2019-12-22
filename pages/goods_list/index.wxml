@@ -1,2 +1,22 @@
-<!--pages/goods_list/index.wxml-->
-<text>pages/goods_list/index.wxml</text>
+<view class="tabs">
+    <block wx:for="{{ tabs }}" wx:key="id">
+        <view bind:tap="changeIndex" data-index="{{ index }}" class="tabs-item {{ activeIndex === index ? 'active' : '' }}">
+            {{ item.name }}
+        </view>
+    </block>
+
+</view>
+
+<!-- 商品列表 -->
+<view class="product-list">
+  <block wx:for="{{ goods }}" wx:key="goods_id">
+    <!-- 点击跳转到商品详情页，注意传递 goods_id 参数 -->
+    <navigator url="/pages/goods_detail/index?goods_id={{ item.goods_id }}" class="product-item">
+      <image class="product-item-left" src="{{ item.goods_small_logo || '/images/lose.svg' }}"></image>
+      <view class="product-item-right">
+        <view class="product-name">{{ item.goods_name }}</view>
+        <view class="product-price">{{ item.goods_price }}</view>
+      </view>
+    </navigator>
+  </block>
+</view>

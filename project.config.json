@@ -60,6 +60,14 @@
 					"id": -1,
 					"name": "pages/category/index",
 					"pathName": "pages/category/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 1,
+					"name": "pages/goods_list/index",
+					"pathName": "pages/goods_list/index",
+					"query": "query=TCL&cid=10",
 					"scene": null
 				}
 			]

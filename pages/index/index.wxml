@@ -15,7 +15,7 @@
 <!-- 外层循环楼层 -->
 <block wx:for="{{ floorData }}" wx:key="">
   <view class="floor-title">
-    <image mode="widthFix" src="{{ item.floor_title.image_src }}"></image>
+    <image mode="widthFix" src="{{ item.floor_title.image_src || '默认图路径' }}"></image>
   </view>
   <view class="floor-body">
   <!-- 里层循环图片列表 -->
