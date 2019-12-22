@@ -1,1 +1,2 @@
+/* 在 app.wxss 中引入，小程序全局生效 */
 @import 'style/iconfont';

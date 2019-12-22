@@ -1,1 +1,109 @@
-/* pages/goods_detail/index.wxss */
+/* pages/goods_detail/goods_detail.wxss */
+
+.slider-swiper {
+  width: 750rpx;
+  height: 750rpx;
+  background-color: #f2f2f2;
+}
+
+.slider-swiper image {
+  width: 750rpx;
+  height: 750rpx;
+}
+
+.goods-price {
+  color: #eb4450;
+  font-size: 50rpx;
+  margin: 10rpx 20rpx;
+}
+
+.goods-price::before {
+  content: "￥";
+  font-size: 80%;
+}
+
+.goods-info {
+  display: flex;
+  margin: 20rpx;
+}
+
+.goods-name {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  flex: 1;
+}
+
+.goods-collect {
+  width: 140rpx;
+  margin-left: 20rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: #999;
+  border-left: 1rpx solid #ddd;
+}
+.icon-collect {
+  width: 50rpx;
+  height: 50rpx;
+}
+
+.goods-title {
+  padding: 5rpx 20rpx;
+  margin: 20rpx 0;
+}
+.divider {
+  height: 20rpx;
+  background-color: #f4f4f4;
+}
+.goods-content {
+  font-size: 0;
+  padding-bottom: 100rpx;
+}
+
+.fixed-bar {
+  height: 98rpx;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background-color: #fff;
+  display: flex;
+}
+
+.bar-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 24rpx;
+  position: relative;
+  color: #666;
+}
+
+.bar-item button {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: pink;
+  /* 透明度为0，让按钮看不到 */
+  opacity: 0;
+}
+
+.bar-btn {
+  width: 210rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f4b73f;
+  color: #fff;
+}
+
+.bar-btn:last-child {
+  background-color: #eb4450;
+}

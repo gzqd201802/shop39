@@ -1,2 +1,55 @@
-<!--pages/goods_detail/index.wxml-->
-<text>pages/goods_detail/index.wxml</text>
+<!-- 轮播图 -->
+<swiper class="slider-swiper">
+    <block wx:for="{{ goods_detail.pics }}" wx:key="pics_id">
+        <swiper-item>
+            <image src="{{ item.pics_big }}" />
+        </swiper-item>
+    </block>
+</swiper>
+<!-- 商品价格 -->
+<view class="goods-price">{{goods_detail.goods_price}}</view>
+<!-- 商品信息 -->
+<view class="goods-info">
+    <view class="goods-name">
+        {{ goods_detail.goods_name }}
+    </view>
+    <view class="goods-collect">
+        <!-- 使用 iconfont -->
+        <view class="iconfont icon-shoucang"></view>
+        <view>收藏</view>
+    </view>
+</view>
+<view class="divider"></view>
+<!--  -->
+<view class="goods-title">
+  图文详情  
+</view>
+<view class="goods-content">
+    <!-- 富文本内容，类似 v-html，小程序富文本支持 HTML 标签展示 -->
+    <rich-text nodes="{{ goods_detail.goods_introduce }}"></rich-text>
+</view>
+<!-- 底部固定 -->
+<view class="fixed-bar">
+  <view class="bar-item">
+    <!-- 通过按钮打开客服功能，按钮透明度为0 -->
+    <button open-type="contact">客服</button>
+    <view class="iconfont icon-kefu"></view>
+    <view>客服</view>
+  </view>
+  <view class="bar-item">
+    <!-- 通过按钮打开分享功能，按钮透明度为0 -->
+    <button open-type="share">分享</button>
+    <view class="iconfont icon-fenxiang"></view>
+    <view>分享</view>
+  </view>
+  <view class="bar-item" bindtap="goToCart">
+    <view class="iconfont icon-gouwuche"></view>
+    <view>购物车</view>
+  </view>
+  <view class="bar-btn" bindtap="addToCart">
+    加入购物车
+  </view>
+  <view class="bar-btn">
+    立即购买
+  </view>
+</view>
