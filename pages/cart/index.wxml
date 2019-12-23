@@ -16,5 +16,57 @@
     2. 判断用户没有授权，打开设置界面，引导用户开启授权
     3. 真正调用 API。
  -->
-<button bind:tap="getSetting">获取授权情况</button>
-<button bind:tap="openSetting">打开设置界面</button>
+<!-- <button bind:tap="getSetting">获取授权情况</button> -->
+<!-- <button bind:tap="openSetting">打开设置界面</button> -->
+
+<view class="cart">
+  <view class="cart-title">优购生活馆</view>
+  <view class="cart-list">
+    <block wx:for="{{ cartList }}" wx:key="goods_id">
+    <view class="cart-item">
+      <view class="cart-item-left">
+        <radio color="#da5155" bindtap="changeCheck" data-index="{{index}}" checked="{{ item.goods_selected }}"></radio>
+      </view>
+      <view class="cart-item-right">
+        <navigator url="/pages/goods_detail/index?goods_id={{ item.goods_id }}" class="product-item">
+          <image class="product-item-left" src="{{ item.goods_small_logo || '/images/default.svg' }}"></image>
+          <view class="product-item-right">
+            <view class="product-name">{{ item.goods_name || '商品名称' }}</view>
+            <view class="product-price">{{ item.goods_price || '9999' }}</view>
+          </view>
+        </navigator>
+        <view class="count">
+          <!-- 减号按钮 -->
+          <view bindtap="changeCount" data-index="{{index}}" data-number="{{ -1 }}" class="count-btn">-</view>
+          <view class="count-number">{{ item.goods_count }}</view>
+          <!-- 加号按钮 -->
+          <view bindtap="changeCount" data-index="{{index}}" data-number="{{ 1 }}"  class="count-btn">+</view>
+        </view>
+      </view>
+    </view>
+    </block>
+  </view>
+</view>
+
+<view class="fixed-bar">
+  <view class="bar-group">
+    <view class="all-checked" bind:tap="changeCheckAll">
+      <radio color="#da5155" checked="{{ checkAll }}"></radio>
+      <text>全选</text>
+    </view>
+    <view class="total">
+      <view class="total-top">
+        <text class="total-text">合计</text>
+        <text class="total-price">{{ totalPrice }}</text>
+      </view>
+      <view class="total-down">包含运费</view>
+    </view>
+  </view>
+  <view class="bar-btn" bindtap="goToPay" >结算({{ totalCount }})</view>
+</view>
+
+<!-- 空购物车处理 -->
+<!-- <view class="empty-cart" wx:if="{{ cartList.length === 0 }}">
+  <image class="empty-cart-image" src="/images/empty_cart.svg"></image>
+  <navigator  class="empty-cart-btn" url="/pages/index/index" open-type="switchTab">去首页逛逛</navigator>
+</view> -->
