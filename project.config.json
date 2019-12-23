@@ -24,7 +24,7 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.9.4",
-	"appid": "wxcca40f22b2e2c364",
+	"appid": "wxfb52f2d7b2f6123a",
 	"projectname": "shop39",
 	"debugOptions": {
 		"hidedInDevtools": []
@@ -71,10 +71,24 @@
 					"scene": null
 				},
 				{
-					"id": -1,
+					"id": 2,
 					"name": "pages/goods_detail/index",
 					"pathName": "pages/goods_detail/index",
-					"query": "goods_id=9832",
+					"query": "goods_id=5678",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/cart/index",
+					"pathName": "pages/cart/index",
+					"query": "goods_id=5678",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/user/index",
+					"pathName": "pages/user/index",
+					"query": "",
 					"scene": null
 				}
 			]

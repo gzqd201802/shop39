@@ -1,2 +1,20 @@
-<!--pages/cart/index.wxml-->
-<text>pages/cart/index.wxml</text>
+<view class="address" bind:tap="getAddressHandle">
+  <!-- 利用 wx:if 选择渲染那个模块 -->
+  <!-- 1.0 没有用户名情况显示一个获取收货地址的按钮 -->
+  <view class="address-empty" wx:if="{{ !address.userName }}">
+    <button>+获取收货地址</button>
+  </view>
+  <!-- 2.0 如果已经有用户名，就显示用户信息 -->
+  <view class="address-info" wx:else>
+    <text space="emsp">收货人：{{ address.userName }}    {{ address.telNumber }}</text>
+    <text space="emsp">收货地址：{{ address.addressDetail }}</text>
+  </view>
+</view>
+<!-- 
+  需要用户授权的 API 都需要以下步骤：
+    1. 获取授权情况
+    2. 判断用户没有授权，打开设置界面，引导用户开启授权
+    3. 真正调用 API。
+ -->
+<button bind:tap="getSetting">获取授权情况</button>
+<button bind:tap="openSetting">打开设置界面</button>
