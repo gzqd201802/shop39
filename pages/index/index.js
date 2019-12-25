@@ -6,6 +6,7 @@ Page({
 
   data:{
     swiperImgs:[ ],
+    navData:[],
     floorData:[ ],
   },
 
@@ -20,10 +21,11 @@ Page({
   async onLoad(){
 
     const swiperImgs = await app.myAxios({url:'home/swiperdata'});
+    const navData = await app.myAxios({url:'home/catitems'});
     const floorData = await app.myAxios({url:'home/floordata'});
 
     // console.log(swiperImgs,floorData);
-    this.setData({ swiperImgs,floorData });
+    this.setData({ swiperImgs,navData, floorData });
     
 
     // wx.request({

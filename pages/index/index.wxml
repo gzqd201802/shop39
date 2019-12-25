@@ -1,17 +1,24 @@
-<!-- 搜索框组件 -->
+<!-- 1.0 搜索框组件 -->
 <search/>
-<!-- 轮播图 -->
-<swiper autoplay circular>
-  <block wx:for="{{ swiperImgs }}" wx:key="goods_id">
-    <swiper-item>
-     <navigator open-type="{{ item.open_type }}" url="{{ item.navigator_url }}">
-      <image src="{{ item.image_src }}"></image>
-     </navigator>
+<!-- 2.0 轮播图 -->
+<view class="slider">
+  <swiper class="slider-swiper" autoplay indicator-dots circular indicator-color="rgba(255, 255, 255, .3)" indicator-active-color="#fff">
+    <swiper-item wx:for="{{ swiperImgs }}" wx:key="goods_id">
+      <navigator open-type="{{ item.open_type }}" url="{{ item.new_url }}">
+        <image src="{{ item.image_src }}"></image>
+      </navigator>
     </swiper-item>
+  </swiper>
+</view>
+<!-- 3.0 入口导航 -->
+<view class="nav">
+  <block wx:for="{{ navData }}" wx:key="name" wx:for-item="item2" wx:for-index="index2">
+    <view class="nav-item">
+      <image src="{{ item2.image_src }}" class="nav-icon"></image>
+    </view>
   </block>
-</swiper>
-
-<!-- 楼层 -->
+</view>
+<!-- 4.0 楼层 -->
 <!-- 外层循环楼层 -->
 <block wx:for="{{ floorData }}" wx:key="">
   <view class="floor-title">
