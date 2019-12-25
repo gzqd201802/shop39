@@ -4,7 +4,23 @@ const baseUrl = 'https://api.zbztb.cn/api/public/v1/';
 
 // myAxios 函数，params 发请求时传入的参数
 export const myAxios = (params)=>{
-
+    // 判断参数的 url 是否有 my/ 路径，如果有，就在请求的时候，给请求头添加 token
+    if(params.url.indexOf('my/') !== -1){
+        params.header = {};
+        // 读取本地存储的 token
+        const token = wx.getStorageSync('token');
+        // 如果有，就设置请求头
+        if(token){
+            params.header.Authorization = token;
+        }else{
+            // 没有 token ，就去用户中心登录
+            wx.switchTab({
+                url: '/pages/user/index',
+            });
+            // 防止报错，内部返回空的 promise 对象
+            return new Promise(()=>{});
+        }
+    }
     // 显示加载提示框
     wx.showLoading({
         title: '加载中',

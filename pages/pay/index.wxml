@@ -1,2 +1,57 @@
-<!--pages/pay/index.wxml-->
-<text>pages/pay/index.wxml</text>
+<view class="address">
+  <!-- 利用 wx:if 选择渲染那个模块 -->
+  <!-- 1.0 没有用户名情况显示一个获取收货地址的按钮 -->
+  <view class="address-empty" wx:if="{{ !address.userName }}">
+    <button>+获取收货地址</button>
+  </view>
+  <!-- 2.0 如果已经有用户名，就显示用户信息 -->
+  <view class="address-info" wx:else>
+    <text space="emsp">收货人：{{ address.userName }}    {{ address.telNumber }}</text>
+    <text space="emsp">收货地址：{{ address.addressDetail }}</text>
+  </view>
+</view>
+<!-- 
+  需要用户授权的 API 都需要以下步骤：
+    1. 获取授权情况
+    2. 判断用户没有授权，打开设置界面，引导用户开启授权
+    3. 真正调用 API。
+ -->
+<!-- <button bind:tap="getSetting">获取授权情况</button> -->
+<!-- <button bind:tap="openSetting">打开设置界面</button> -->
+
+<view class="cart">
+  <view class="cart-title">优购生活馆</view>
+  <view class="cart-list">
+    <block wx:for="{{ cartList }}" wx:key="goods_id" wx:if="{{ item.goods_selected }}">
+    <view class="cart-item">
+      <view class="cart-item-right">
+        <navigator url="/pages/goods_detail/index?goods_id={{ item.goods_id }}" class="product-item">
+          <image class="product-item-left" src="{{ item.goods_small_logo || '/images/default.svg' }}"></image>
+          <view class="product-item-right">
+            <view class="product-name">{{ item.goods_name || '商品名称' }}</view>
+            <view class="product-price">{{ item.goods_price || '9999' }}</view>
+          </view>
+        </navigator>
+        <view class="count">
+          <!-- 减号按钮 -->
+          <view class="count-number">x {{ item.goods_count }}</view>
+          <!-- 加号按钮 -->
+        </view>
+      </view>
+    </view>
+    </block>
+  </view>
+</view>
+
+<view class="fixed-bar">
+  <view class="bar-group">
+    <view class="total">
+      <view class="total-top">
+        <text class="total-text">合计</text>
+        <text class="total-price">{{ totalPrice }}</text>
+      </view>
+      <view class="total-down">包含运费</view>
+    </view>
+  </view>
+  <view class="bar-btn" bindtap="pay" >💰支付</view>
+</view>
