@@ -1,2 +1,7 @@
-<!--pages/user/index.wxml-->
-<text>pages/user/index.wxml</text>
+<block wx:if="{{ !token }}">
+    <button open-type="getUserInfo" bind:getuserinfo="getToken">微信授权登录</button>
+</block>
+<block wx:else>
+    <!-- <image src="{{ userInfo.avatarUrl }}" mode="widthFix" /> -->
+    <text>  {{ userInfo.nickName }}</text>
+</block>
