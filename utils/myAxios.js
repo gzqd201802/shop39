@@ -6,7 +6,7 @@ const baseUrl = 'https://api.zbztb.cn/api/public/v1/';
 export const myAxios = (params)=>{
     // 判断参数的 url 是否有 my/ 路径，如果有，就在请求的时候，给请求头添加 token
     if(params.url.indexOf('my/') !== -1){
-        params.header = {};
+        params.header = params.header || {};
         // 读取本地存储的 token
         const token = wx.getStorageSync('token');
         // 如果有，就设置请求头

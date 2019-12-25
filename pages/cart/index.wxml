@@ -62,7 +62,7 @@
       <view class="total-down">包含运费</view>
     </view>
   </view>
-  <view class="bar-btn" bindtap="goToPay" >结算({{ totalCount }})</view>
+  <navigator url="/pages/pay/index" class="bar-btn">结算({{ totalCount }})</navigator> 
 </view>
 
 <!-- 空购物车处理 -->
