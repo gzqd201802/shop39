@@ -1,0 +1,2 @@
+<button class="token-btn" open-type="getUserInfo" bindgetuserinfo="getToken">获取Token</button>
+<slot />

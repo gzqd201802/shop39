@@ -27,6 +27,7 @@
 <view class="goods-content">
     <!-- 富文本内容，类似 v-html，小程序富文本支持 HTML 标签展示 -->
     <rich-text nodes="{{ goods_detail.goods_introduce }}"></rich-text>
+    <ad unit-id="adunit-c510b34b21437164"></ad>
 </view>
 <!-- 底部固定 -->
 <view class="fixed-bar">

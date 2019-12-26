@@ -1,0 +1,3 @@
+<view bind:tap="getAddressHandle">
+    <slot></slot>
+</view>

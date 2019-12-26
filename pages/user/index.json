@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "token":"/components/token/index",
+    "address":"/components/address/index"
+  }
 }

@@ -5,3 +5,10 @@
     <!-- <image src="{{ userInfo.avatarUrl }}" mode="widthFix" /> -->
     <text>  {{ userInfo.nickName }}</text>
 </block>
+
+<view class="box">
+    box内容
+    <token>
+        自定义内容
+    </token>
+</view>

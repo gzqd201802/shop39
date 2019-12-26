@@ -13,6 +13,11 @@ Page({
       token: wx.getStorageSync("token") || ''
     });
   },
+  onLoad(){
+    wx.request({
+      url: 'https://easy-mock.com/mock/5e0462ce76509b60ee5d01fb/oneList',
+    });
+  },
   // 分治思想 - 每个功能封装一个独立的函数，分而治之。
   // 获取 code
   getCode() {
